@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	<bean	id="greyInk" class="demo.printer.ink.GreyInk"></bean>
+	<bean	id="colorInk" class="demo.printer.ink.ColorInk"></bean>
+	<bean id="a4" class="demo.printer.paper.TextPaper">
+		<property name="charPerLine">
+			<value>6</value>
+		</property>
+		<property name="linePerPage" value="4"></property>
+	</bean>	<bean id="b4" class="demo.printer.paper.TextPaper">
+		<property name="charPerLine">
+			<value>4</value>
+		</property>
+		<property name="linePerPage" value="6"></property>
+	</bean>	
+	<bean id="printer" class="demo.printer.printer.Printer">
+		<property name="ink" ref="colorInk"></property>
+		<property name="paper" ref="b4"></property>
+	</bean>
+	
+
+</beans>
